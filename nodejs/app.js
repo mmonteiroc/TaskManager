@@ -16,10 +16,6 @@ app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Methods", "GET, POST, HEAD, OPTIONS, PUT, PATCH, DELETE");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, x-access-token, x-refresh-token, _id");
 
-  res.header(
-      'Access-Control-Expose-Headers',
-      'x-access-token, x-refresh-token'
-  );
 
   next();
 });
@@ -146,7 +142,9 @@ app.patch("/lists/:listId/tasks/:taskId", (req, res) => {
       $set: req.body,
     }
   ).then(() => {
-    res.sendStatus(200);
+    res.send({
+      message: "Updated successfully"
+    });
   });
 });
 
