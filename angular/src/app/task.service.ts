@@ -15,4 +15,11 @@ export class TaskService {
     return this.webReqService.post('lists', {title});
   }
 
+  getLists(): Observable<any> {
+    return this.webReqService.get('lists');
+  }
+
+  getTasks(listId: string): Observable<any> {
+    return this.webReqService.get(`lists/${listId}/tasks`);
+  }
 }
