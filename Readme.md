@@ -1,4 +1,4 @@
-# Foobar
+# Personal task manager
 
 Task manager made with ANGULAR and NODEJS (MONGODB)
 
