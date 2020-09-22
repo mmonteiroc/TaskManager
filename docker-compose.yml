@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+    angular: 
+        image: 'front-todo'
+        restart: always
+        container_name: 'front_container'
+        volumes:
+            - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+        ports:
+            - 80:80
+    node: 
+        depends_on:
+            - mongo
+        image: 'back-todo'
+        restart: always
+        container_name: 'back_container'
+        ports:
+            - 3000:3000
+    mongo:
+        image: 'mongo'
+        restart: always
+        environment:
+            MONGO_INITDB_DATABASE: test
+        container_name: 'mongo_container'
+        volumes:
+            - ./dbinit/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+            - ./data/mongo:/data/db

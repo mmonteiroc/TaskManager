@@ -12,7 +12,7 @@ $dark-green: rgb(0,100,80);
 $family-sans-serif: 'Nunito', sans-serif;
 $primary: $green;
 
-$link: $light-green;
+$link: $turquoise;
 
 // Update some of Bulma's component variables
 
@@ -83,4 +83,15 @@ html, body {
 
   padding: 35px;
 }
+
+.white-box{
+  padding: 35px;
+  background: white;
+  border-radius: 5px;
+
+  width: 350px;
+  max-width: 350px;
+}
+
+
 

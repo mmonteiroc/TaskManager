@@ -1,7 +1,6 @@
 @import "../../../main-style";
 
 
-
 .task-manager-container {
   display: flex;
   width: 100%;
@@ -21,9 +20,16 @@
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
 
+  .action-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
 }
 
 .task-list-container {
+  overflow-y: auto;
   position: relative;
   display: flex;
   flex-grow: 1;
@@ -32,6 +38,17 @@
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   padding: 42px;
+
+
+  .top-bar{
+    display: flex;
+    margin-bottom: 20px;
+    .title{
+      margin: 0;
+
+      flex-grow: 1;
+    }
+  }
 
 }
 
@@ -75,11 +92,12 @@
 
 
 .task {
+  display: flex;
   background: white;
   padding: 15px 20px;
   border-radius: 5px;
   margin-top: 10px;
-
+  align-items: center;
 
   &:not(.complete) {
     transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -94,14 +112,32 @@
     }
   }
 
+  &:hover {
+    .task-buttons{
+      transform: scale(0.85);
+      opacity: 1;
+    }
+  }
 
-  &.complete {
+  &.complete .task-text {
     text-decoration: line-through;
     opacity: 0.8;
   }
+
+  .task-text{
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .task-buttons {
+    transition:  opacity 0.2s ease, transform 0.2s ease;
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
 }
 
-.circle-add-button{
+.circle-add-button {
   bottom: 35px;
   right: 35px;
   position: absolute;
@@ -109,3 +145,10 @@
   width: 50px;
   border-radius: 50%;
 }
+
+.empty-state-text {
+  font-size: 20px;
+  color: #777;
+  text-align: center;
+}
+

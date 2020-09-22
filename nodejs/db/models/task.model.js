@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const TaskSchema = new mongoose.Schema({
@@ -11,7 +12,7 @@ const TaskSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         required: true
     },
-    completed:{
+    completed: {
         type: Boolean,
         default: false
     }
