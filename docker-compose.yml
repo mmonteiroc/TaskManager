@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-    angular: 
+    tasks: 
         image: 'front-todo'
         restart: always
         container_name: 'front_container'
@@ -8,6 +8,14 @@ services:
             - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
         ports:
             - 4200:80
+    budget: 
+        image: 'front-budget'
+        restart: always
+        container_name: 'front_budget_container'
+        volumes:
+            - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf
+        ports:
+            - 4201:80
     node: 
         depends_on:
             - mongo
